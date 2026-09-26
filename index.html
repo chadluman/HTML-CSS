@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A classroom demo for teaching HTML forms, validation, and CSS interactions."
+    />
+    <title>FormLab | Workshop registration</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#registration-form">Skip to the registration form</a>
+
+    <div class="background-grid" aria-hidden="true"></div>
+
+    <main class="page-shell">
+      <section class="intro-panel" aria-labelledby="page-title">
+        <a class="brand" href="#" aria-label="FormLab home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" role="img">
+              <path d="M8 8h16v16H8z" />
+              <path d="m12 16 3 3 6-7" />
+            </svg>
+          </span>
+          <span>FormLab</span>
+        </a>
+
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Live classroom project</p>
+          <h1 id="page-title">Build forms people enjoy completing.</h1>
+          <p class="hero-text">
+            Register for a hands-on design workshop while exploring semantic inputs,
+            friendly validation, and purposeful CSS motion.
+          </p>
+        </div>
+
+        <div class="lesson-card">
+          <p class="lesson-label">What this demo covers</p>
+          <ul class="lesson-list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12.5 9.5 17 19 7.5" />
+              </svg>
+              Semantic HTML input types
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12.5 9.5 17 19 7.5" />
+              </svg>
+              Accessible validation feedback
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12.5 9.5 17 19 7.5" />
+              </svg>
+              Transitions and keyframe animation
+            </li>
+          </ul>
+        </div>
+
+        <p class="instructor-note">
+          <span aria-hidden="true">01</span>
+          Start with the HTML, then reveal the CSS and JavaScript layers.
+        </p>
+      </section>
+
+      <section class="form-panel" aria-labelledby="form-title">
+        <div class="form-card">
+          <div class="form-heading">
+            <div>
+              <p class="step-label">Workshop registration</p>
+              <h2 id="form-title">Save your seat</h2>
+            </div>
+            <span class="step-count">One quick form</span>
+          </div>
+
+          <p class="form-intro">
+            Required fields are marked with <span class="required-marker" aria-hidden="true">*</span><span class="sr-only">an asterisk</span>.
+          </p>
+
+          <div class="error-summary" id="error-summary" role="alert" tabindex="-1" hidden>
+            <div class="summary-icon" aria-hidden="true">!</div>
+            <div>
+              <h3>Please check the highlighted fields</h3>
+              <ul id="error-list"></ul>
+            </div>
+          </div>
+
+          <form id="registration-form" novalidate>
+            <div class="field-grid">
+              <div class="field" data-field>
+                <label for="full-name">Full name <span class="required-marker" aria-hidden="true">*</span></label>
+                <div class="input-shell">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3.5" />
+                    <path d="M5.5 20c.5-4 2.7-6 6.5-6s6 2 6.5 6" />
+                  </svg>
+                  <input
+                    id="full-name"
+                    name="fullName"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Jordan Lee"
+                    minlength="2"
+                    required
+                    aria-describedby="full-name-error"
+                  />
+                </div>
+                <p class="error-message" id="full-name-error"></p>
+              </div>
+
+              <div class="field" data-field>
+                <label for="email">Email address <span class="required-marker" aria-hidden="true">*</span></label>
+                <div class="input-shell">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="14" rx="2" />
+                    <path d="m5 7 7 5.5L19 7" />
+                  </svg>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="jordan@example.com"
+                    required
+                    aria-describedby="email-error"
+                  />
+                </div>
+                <p class="error-message" id="email-error"></p>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field" data-field>
+                <label for="phone">Phone number <span class="optional">Optional</span></label>
+                <div class="input-shell">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 4 5.5 5.5C4 7 6 12 9 15s8 5 9.5 3.5L20 16l-4-2-1.5 2c-1.8-.8-3.1-1.8-4.3-3s-2.2-2.5-3-4.3l2-1.5L8 4Z" />
+                  </svg>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="(555) 123-4567"
+                    pattern="(?:[ ()+\-]*[0-9]){10,}[ ()+\-]*"
+                    aria-describedby="phone-hint phone-error"
+                  />
+                </div>
+                <p class="field-hint" id="phone-hint">Use at least 10 digits.</p>
+                <p class="error-message" id="phone-error"></p>
+              </div>
+
+              <div class="field" data-field>
+                <label for="workshop-date">Workshop date <span class="required-marker" aria-hidden="true">*</span></label>
+                <div class="input-shell input-shell--plain">
+                  <input
+                    id="workshop-date"
+                    name="workshopDate"
+                    type="date"
+                    required
+                    aria-describedby="workshop-date-error"
+                  />
+                </div>
+                <p class="error-message" id="workshop-date-error"></p>
+              </div>
+            </div>
+
+            <div class="field" data-field>
+              <label for="track">Choose a learning track <span class="required-marker" aria-hidden="true">*</span></label>
+              <div class="select-shell">
+                <select id="track" name="track" required aria-describedby="track-error">
+                  <option value="">Select a track</option>
+                  <option value="form-foundations">Form foundations</option>
+                  <option value="validation">Friendly validation</option>
+                  <option value="css-motion">CSS motion and polish</option>
+                </select>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 10 4 4 4-4" />
+                </svg>
+              </div>
+              <p class="error-message" id="track-error"></p>
+            </div>
+
+            <fieldset class="field choice-group" data-field>
+              <legend>Current experience <span class="required-marker" aria-hidden="true">*</span></legend>
+              <div class="choice-row">
+                <label class="choice-card">
+                  <input
+                    id="experience-beginner"
+                    type="radio"
+                    name="experience"
+                    value="beginner"
+                    required
+                    aria-describedby="experience-error"
+                  />
+                  <span class="radio-mark" aria-hidden="true"></span>
+                  <span>
+                    <strong>Beginner</strong>
+                    <small>I am learning the basics</small>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input id="experience-builder" type="radio" name="experience" value="builder" />
+                  <span class="radio-mark" aria-hidden="true"></span>
+                  <span>
+                    <strong>Builder</strong>
+                    <small>I have made a few pages</small>
+                  </span>
+                </label>
+              </div>
+              <p class="error-message" id="experience-error"></p>
+            </fieldset>
+
+            <div class="field range-field" data-field>
+              <div class="range-heading">
+                <label for="confidence">CSS confidence</label>
+                <output id="confidence-output" for="confidence">3 / 5</output>
+              </div>
+              <input id="confidence" name="confidence" type="range" min="1" max="5" value="3" />
+              <div class="range-labels" aria-hidden="true"><span>Just starting</span><span>Very confident</span></div>
+            </div>
+
+            <div class="field" data-field>
+              <label for="project-file">Share a practice file <span class="optional">Optional · 2 MB max</span></label>
+              <input
+                class="file-input"
+                id="project-file"
+                name="projectFile"
+                type="file"
+                accept=".html,.css,.zip"
+                aria-describedby="file-hint project-file-error"
+              />
+              <p class="field-hint" id="file-hint">Accepted formats: HTML, CSS, or ZIP.</p>
+              <p class="error-message" id="project-file-error"></p>
+            </div>
+
+            <div class="field" data-field>
+              <div class="label-row">
+                <label for="learning-goal">What would you like to build? <span class="required-marker" aria-hidden="true">*</span></label>
+                <span id="goal-count" aria-live="polite">0 / 240</span>
+              </div>
+              <textarea
+                id="learning-goal"
+                name="learningGoal"
+                rows="4"
+                minlength="20"
+                maxlength="240"
+                placeholder="Describe a form or page you would like to create..."
+                required
+                aria-describedby="goal-hint learning-goal-error"
+              ></textarea>
+              <p class="field-hint" id="goal-hint">Write at least 20 characters.</p>
+              <p class="error-message" id="learning-goal-error"></p>
+            </div>
+
+            <div class="field checkbox-field" data-field>
+              <label class="checkbox-label">
+                <input
+                  id="code-of-conduct"
+                  name="codeOfConduct"
+                  type="checkbox"
+                  required
+                  aria-describedby="code-of-conduct-error"
+                />
+                <span class="checkbox-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" /></svg>
+                </span>
+                <span>I agree to participate respectfully in the workshop. <span class="required-marker" aria-hidden="true">*</span></span>
+              </label>
+              <p class="error-message" id="code-of-conduct-error"></p>
+            </div>
+
+            <button class="submit-button" type="submit">
+              <span>Complete registration</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M14 7l5 5-5 5" />
+              </svg>
+            </button>
+
+            <p class="privacy-note">Demo only—nothing is sent or stored.</p>
+          </form>
+
+          <section class="success-panel" id="success-panel" tabindex="-1" hidden>
+            <div class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="m13 25 7 7 15-17" /></svg>
+            </div>
+            <p class="step-label">Registration complete</p>
+            <h2>You are on the list!</h2>
+            <p>
+              The form passed every validation rule. In a real project, this is where the
+              data would be sent to a server.
+            </p>
+            <button class="secondary-button" id="reset-form" type="button">Try the form again</button>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
